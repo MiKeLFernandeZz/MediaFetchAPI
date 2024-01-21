@@ -4,6 +4,7 @@ const ytdl = require('ytdl-core');
 const app = express();
 
 app.use(cors());
+
 app.listen(4000, () => {
     console.log('Server Works !!! At port 4000');
 });
@@ -15,3 +16,9 @@ app.get('/download', (req, res) => {
         format: 'mp4'
     }).pipe(res);
 });
+
+app.get('/home', (req, res) => {
+    res.status(200).json('Welcome, your app is working well');
+})
+
+module.exports = app
